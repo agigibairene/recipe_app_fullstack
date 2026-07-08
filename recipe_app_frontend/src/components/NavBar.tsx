@@ -39,8 +39,8 @@ export default function NavBar(){
                 </div>
                 <div className='bg-white rounded-bl-[4rem] p-11 flex items-center gap-3'>
                     <div>
-                        <button className='text-gray-500 cursor-pointer text-sm' onClick={()=>navigate('/login')}>Login/</button>
-                        <button className='text-gray-500 cursor-pointer text-sm' onClick={()=>navigate('/signup')}>Signup</button>
+                        <button className='text-gray-500 hover:text-orange-500 hover:scale-105 cursor-pointer text-sm' onClick={()=>navigate('/login')}>Login/</button>
+                        <button className='text-gray-500 hover:text-orange-500 hover:scale-105 cursor-pointer text-sm' onClick={()=>navigate('/signup')}>Signup</button>
                     </div>
                     <Handbag size={25} color='#6a7282'/>
                 </div>
