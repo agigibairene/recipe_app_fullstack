@@ -31,8 +31,8 @@ export default function NavBar(){
                     </div>
                     <ul className='flex gap-10 md:pl-6'>
                         {
-                            navLinks.map((nav)=><NavLink className=' text-sm text-gray-400' to={nav.link}>
-                                <li className='text-gray-600'>{nav.name}</li>
+                            navLinks.map((nav)=><NavLink className='text-sm text-gray-400' to={nav.link}>
+                                <li className='text-gray-600 hover:text-orange-500'>{nav.name}</li>
                             </NavLink>)
                         }
                     </ul>
