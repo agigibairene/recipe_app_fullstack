@@ -12,7 +12,8 @@ interface User{
     username: string,
     email: string,
     password: string,
-    confirm_password: string
+    confirm_password: string,
+    profession:  string
 }
 
 
@@ -23,7 +24,8 @@ export default function Signup(){
         username: '',
         email: '',
         password: '',
-        confirm_password: ''
+        confirm_password: '',
+        profession: ''
     });
     const navigate = useNavigate()
 
@@ -60,7 +62,7 @@ export default function Signup(){
                 {/* FORM */}
                 <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
                     <h2 className="md:text-3xl text-2xl text-orange-500 font-semibold  mb-1">Create an Account</h2>
-                    <p className="mb-6 text-sm">Already have an account? 
+                    <p className="my-6 text-sm">Already have an account? 
                         <Link to='/login' className="text-orange-500 outline-0 underline"> Log in</Link>
                     </p>
                     <div className="space-y-5">
@@ -98,7 +100,7 @@ export default function Signup(){
                             <input
                                 placeholder="Profession"
                                 name='profession'
-                                value={userInput.email}
+                                value={userInput.profession}
                                 className="px-1 w-1/2 py-2 border border-orange-400 rounded-sm outline-0"
                                 onChange={handleChange}
                             />
@@ -129,11 +131,11 @@ export default function Signup(){
                     </div>
                    
                     <div className="flex gap-3">
-                        <button className="w-1/2 cursor-pointer flex items-center justify-center gap-2 border border-gray-500 rounded-lg py-2.5 text-sm  hover:bg-white/5 transition">
+                        <button className="w-1/2 hover:scale-105 cursor-pointer flex items-center justify-center gap-2 border border-gray-500 rounded-lg py-2.5 text-sm  hover:bg-white/5 transition">
                             <FcGoogle />
                             Google
                         </button>
-                        <button className="w-1/2 flex cursor-pointer items-center justify-center gap-2 border border-gray-500 rounded-lg py-2.5 text-sm  hover:bg-white/5 transition">
+                        <button className="w-1/2 hover:scale-105 flex cursor-pointer items-center justify-center gap-2 border border-gray-500 rounded-lg py-2.5 text-sm  hover:bg-white/5 transition">
                             <GrGithub />
                             GitHub
                         </button>
