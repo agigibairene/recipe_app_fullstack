@@ -35,13 +35,14 @@ export default function Login(){
                     <img src={logo} alt="" className='h-12 mx-auto'/>
                     <h1 className='text-center text-3xl text-orange-500 font-medium my-2'>Welcome Back!</h1>
                     <p className='text-center text-white'>Login to create your recipes and also discover new recipes</p>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                         <div className='flex text-white flex-col gap-1'>
                             <label htmlFor='email'>Email</label>
                             <input
                                 name='email'
                                 value={userInput.email}
                                 onChange={handleChange}
+                                placeholder='Enter your email'
                                 className='px-3 py-2 rounded-md outline-0 border border-orange-400'
                             />
                         </div>
@@ -53,6 +54,7 @@ export default function Login(){
                                    type={showPassword ? 'text' : 'password'}
                                    value={userInput.password}
                                    onChange={handleChange}
+                                   placeholder='Password'
                                    className='px-3 py-2 w-full rounded-md outline-0 border border-orange-400'
             
                                 />
@@ -78,6 +80,8 @@ export default function Login(){
                                 <FcGoogle />
                                 Google
                             </button>
+
+                            <span className='my-5 text-center'>Don't have an account? <Link className='font-bold' to='/signup'>Sign up</Link></span>
                         </div>
                     </div>
                 </div>
