@@ -7,6 +7,7 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=150)
     otp = models.CharField(max_length=6, blank=True, null=True)
     otp_created_at = models.DateTimeField(blank=True, null=True)
+    profession = models.CharField(max_length=200)
 
 
 class UserProfile(models.Model):

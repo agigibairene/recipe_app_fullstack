@@ -1,9 +1,12 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import signup from '../assets/signup.jpeg';
 import { FcGoogle } from "react-icons/fc";
 import { GrGithub } from "react-icons/gr";
 import { ArrowRight } from "lucide-react";
+import { signupAPI } from '../redux/auth'
+import type { AppDispatch } from "../redux/store";
+import { useDispatch } from 'react-redux';
 
 
 interface User{
@@ -27,7 +30,8 @@ export default function Signup(){
         confirm_password: '',
         profession: ''
     });
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
 
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>){
@@ -38,6 +42,18 @@ export default function Signup(){
             [name]: value
         }));
     }
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>){
+        e.preventDefault();
+        try{
+            await dispatch(signupAPI(userInput)).unwrap();
+            navigate('/login')
+        }   
+        catch(e){
+            console.log("Signup failed:", e);
+        }
+    }
+
     return(
         <section className="min-h-screen w-full flex items-center justify-center p-6 bg-gray-100">
             <div className="w-full max-w-5xl flex rounded-3xl shadow-2xl overflow-hidden bg-blue-100 p-4 lg:h-[92vh]">
@@ -60,7 +76,7 @@ export default function Signup(){
                 </div>
 
                 {/* FORM */}
-                <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
+                <form onSubmit={handleSubmit} className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
                     <h2 className="md:text-3xl text-2xl text-orange-500 font-semibold  mb-1">Create an Account</h2>
                     <p className="my-6 text-sm">Already have an account? 
                         <Link to='/login' className="text-orange-500 outline-0 underline"> Log in</Link>
@@ -92,7 +108,7 @@ export default function Signup(){
                         <div className="flex gap-4">
                             <input
                                 placeholder="Username"
-                                name='user_name'
+                                name='username'
                                 value={userInput.username}
                                 className="px-1 w-1/2 py-2 border border-orange-400 rounded-sm outline-0"
                                 onChange={handleChange}
@@ -140,7 +156,7 @@ export default function Signup(){
                             GitHub
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
     )
